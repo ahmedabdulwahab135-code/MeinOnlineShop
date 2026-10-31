@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mein Online-Shop</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  color: #222;
+}
+
+header {
+  background: #17172e;
+  color: white;
+  padding: 22px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 10px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #6655ff, #ab56dd);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h2 {
+  font-size: 30px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+  padding: 25px;
+  max-width: 1050px;
+  margin: auto;
+}
+
+.product {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 4px 15px #00000012;
+}
+
+.picture {
+  font-size: 75px;
+  background: #f1efff;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.price {
+  color: #6545dc;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+button {
+  background: #6545dc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background: #4931ac;
+}
+
+.cart {
+  background: white;
+  margin: 20px auto;
+  padding: 25px;
+  max-width: 550px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+footer {
+  background: #17172e;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🛍️ MeinOnlineShop</h1>
+  <p>Dein neuer Lieblingsshop</p>
+</header>
+
+<section class="hero">
+  <h2>Willkommen in meinem Shop!</h2>
+  <p>Entdecke unsere coolen Produkte.</p>
+</section>
+
+<section class="products">
+
+  <div class="product">
+    <div class="picture">👕</div>
+    <h2>Cooles T-Shirt</h2>
+    <p>Bequem und modern</p>
+    <p class="price">19,99 €</p>
+    <button onclick="addToCart(19.99)">
+      In den Warenkorb
+    </button>
+  </div>
+
+  <div class="product">
+    <div class="picture">🎧</div>
+    <h2>Kopfhörer</h2>
+    <p>Perfekter Sound</p>
+    <p class="price">39,99 €</p>
+    <button onclick="addToCart(39.99)">
+      In den Warenkorb
+    </button>
+  </div>
+
+  <div class="product">
+    <div class="picture">🎒</div>
+    <h2>Rucksack</h2>
+    <p>Stylisch und praktisch</p>
+    <p class="price">29,99 €</p>
+    <button onclick="addToCart(29.99)">
+      In den Warenkorb
+    </button>
+  </div>
+
+</section>
+
+<div class="cart">
+  <h2>🛒 Dein Warenkorb</h2>
+  <p>Produkte: <span id="count">0</span></p>
+  <h3>Gesamt: <span id="total">0,00</span> €</h3>
+  <button onclick="clearCart()">Warenkorb leeren</button>
+</div>
+
+<footer>
+  <p>© 2026 MeinOnlineShop</p>
+</footer>
+
+<script>
+let count = 0;
+let total = 0;
+
+function addToCart(price) {
+  count++;
+  total += price;
+
+  document.getElementById("count").textContent = count;
+  document.getElementById("total").textContent =
+    total.toFixed(2).replace(".", ",");
+
+  alert("Produkt zum Warenkorb hinzugefügt! 🛒");
+}
+
+function clearCart() {
+  count = 0;
+  total = 0;
+
+  document.getElementById("count").textContent = "0";
+  document.getElementById("total").textContent = "0,00";
+}
+</script>
+
+</body>
+</html>
